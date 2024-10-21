@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>计数器</title>
+  </head>
+  <body>
+    <h1>计数器</h1>
+
+    <h2>z</h2>
+    <form action="{{ url_for('count', person='z') }}" method="POST">
+      <button type="submit">z 计数</button>
+    </form>
+    <p>今天计数: {{ today_z }}</p>
+    <p>所有天数计数总数: {{ total_z }}</p>
+    <ul>
+      {% for record in z_records %}
+      <li>{{ record.date }}: {{ record.count }}</li>
+      {% endfor %}
+    </ul>
+
+    <h2>x</h2>
+    <form action="{{ url_for('count', person='x') }}" method="POST">
+      <button type="submit">x 计数</button>
+    </form>
+    <p>今天计数: {{ today_x }}</p>
+    <p>所有天数计数总数: {{ total_x }}</p>
+    <ul>
+      {% for record in x_records %}
+      <li>{{ record.date }}: {{ record.count }}</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
